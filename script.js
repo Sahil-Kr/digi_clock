@@ -24,6 +24,7 @@ const numMap = {
 
 const hourEle = document.querySelectorAll(".hour-tile");
 const minEle = document.querySelectorAll(".minute-tile");
+const secEle = document.querySelector(".second-count");
 
 const setHourTile = (num, offset) => {
   for (let k = 0; k < 15; k++) {
@@ -47,11 +48,18 @@ setInterval(() => {
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   let hourNum = today.getHours().toString().split("");
   let minuteNum = today.getMinutes().toString().split("");
+  // console.log(today.getSeconds().toString().length);
+
+  secEle.textContent =
+    today.getSeconds().toString().length > 1
+      ? today.getSeconds()
+      : "0" + today.getSeconds();
 
   if (hourNum.length > 1) {
     setHourTile(numMap[Number(hourNum[hourNum.length - 1])], 15);
     setHourTile(numMap[Number(hourNum[0])], 0);
   } else {
+    setHourTile(numMap[0], 0);
     setHourTile(numMap[Number(hourNum[0])], 15);
   }
 
@@ -59,8 +67,9 @@ setInterval(() => {
     setMinuteTile(numMap[Number(minuteNum[minuteNum.length - 1])], 15);
     setMinuteTile(numMap[Number(minuteNum[0])], 0);
   } else {
+    setMinuteTile(numMap[0], 0);
     setMinuteTile(numMap[Number(minuteNum[0])], 15);
   }
 
-  console.log(time);
+  //console.log(time);
 }, 1000);
