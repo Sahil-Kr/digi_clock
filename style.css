@@ -18,7 +18,6 @@ body {
   transform: translate(-50%, -50%);
   height: 425px;
   width: 1000px;
-  /* background-color: azure; */
 }
 
 .hour-container {
@@ -33,7 +32,6 @@ body {
   height: 80%;
   width: 25%;
   transform: skewX(-4deg);
-  /* background-color: bisque; */
 }
 
 .minute-tile,
@@ -56,7 +54,6 @@ body {
   box-sizing: border-box;
   padding: 10px;
   transform: skewX(-4deg);
-  /* background-color: bisque; */
 }
 
 .sep-tile {
@@ -77,18 +74,13 @@ body {
     background-color: yellow;
     transform: scale(1);
   }
-  /* 80% {
-    background-color: rgba(255, 255, 0, 0.808);
-    transform: scale(1.05);
-  } */
+
   75% {
     background-color: black;
-    /* transform: scale(1.1); */
   }
 
   100% {
     background-color: black;
-    /* transform: scale(1.1); */
   }
 }
 .minute-container {
@@ -103,7 +95,6 @@ body {
   box-sizing: border-box;
   padding: 15px;
   transform: skewX(-4deg);
-  /* background-color: bisque; */
 }
 
 .second-container {
@@ -116,28 +107,24 @@ body {
   width: 6.8%;
   margin-top: 15px;
   margin-bottom: 15px;
-  /* background-color: white; */
   transform: skewX(-4deg);
 }
 
 .second-tile {
+  position: relative;
   height: 18.2%;
   width: 96%;
-  background-color: yellow;
   border-radius: 10px;
 }
 
 .second-count {
   display: inline-block;
-  height: 100%;
-  width: 100%;
-  color: #000;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: yellow;
   font-family: "Courier New", Courier, monospace;
   font-weight: 700;
   text-align: center;
   font-size: 50px;
 }
-
-/* div {
-  color: #ffffff2d;
-} */
