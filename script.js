@@ -54,8 +54,8 @@ setInterval(() => {
   let today = new Date();
 
   //storing individual digit of hour and minutes
-  let hourNum = today.getHours().toString().split("");
-  let minuteNum = today.getMinutes().toString().split("");
+  let hourNum = today.getHours().toString().padStart(2, 0).split("");
+  let minuteNum = today.getMinutes().toString().padStart(2, 0).split("");
 
   //Setting seconds to the second element
   secEle.textContent =
@@ -64,20 +64,10 @@ setInterval(() => {
       : `0${today.getSeconds()}`;
 
   //calling set tile function to color the tiles according to digits for hours
-  if (hourNum.length > 1) {
-    setHourTile(numMap[Number(hourNum[hourNum.length - 1])], 15);
-    setHourTile(numMap[Number(hourNum[0])], 0);
-  } else {
-    setHourTile(numMap[0], 0);
-    setHourTile(numMap[Number(hourNum[0])], 15);
-  }
+  setHourTile(numMap[Number(hourNum[hourNum.length - 1])], 15);
+  setHourTile(numMap[Number(hourNum[0])], 0);
 
   //calling set tile function to color the tiles according to digits for minutes
-  if (minuteNum.length > 1) {
-    setMinuteTile(numMap[Number(minuteNum[minuteNum.length - 1])], 15);
-    setMinuteTile(numMap[Number(minuteNum[0])], 0);
-  } else {
-    setMinuteTile(numMap[0], 0);
-    setMinuteTile(numMap[Number(minuteNum[0])], 15);
-  }
+  setMinuteTile(numMap[Number(minuteNum[minuteNum.length - 1])], 15);
+  setMinuteTile(numMap[Number(minuteNum[0])], 0);
 }, 1000);
